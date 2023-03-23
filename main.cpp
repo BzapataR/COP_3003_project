@@ -18,9 +18,9 @@
 
 
 int main() {
-    get_json();
+    get_json(); // get the .json file by either direct input or search of a directory
     bool user_done=true;
-    while (user_done) {
+    while (user_done) { // either read, write, quit or get another json file.
         main_menu();
         user_done = done_menu();
         cout

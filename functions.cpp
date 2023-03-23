@@ -10,55 +10,66 @@ fs:: path dir_path;
 void get_json (){
     std:: string temp_str;
     json_file_path= "";
+
+
     // json_file_path="/Users/brianzapataresendiz/Documents/test2.json" example
     cout << "Enter .json file path or hit enter to look for one in "
             "a specific directory.\n";
     getline(cin, temp_str);
     json_file_path=temp_str;
+
     cout << "json file is: " << json_file_path << endl;
     cout <<
          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n";
+
     if(json_file_path=="")
     {
         cout << "Please enter a file path to look or make a .json file.\n";
         // /Users/brianzapataresendiz/Documents/ example
+
         getline(cin,temp_str);
+
         cout <<"file is:"<<  temp_str;
         dir_path = temp_str;
         search_directory();
+
         cout << "Chosen .json file is : " << json_file_path << "\n";
     }
 }
 
-void search_directory() {
+void search_directory() { //finds .jsons and puts it in a vector to select from
     std::vector<fs::path> json_files;
+
     for (auto& element : fs::recursive_directory_iterator(dir_path)) {
         if (element.is_regular_file() && element.path().extension() == ".json") {
             json_files.push_back(element.path());
         }
+
     }
+
     if (json_files.empty()) { // if no .json files are found this if statement will run
         cout <<
              "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n";
 
-        cout << "No .json files found in directory." << std::endl;
-        std::string file_name;
-        cout << "Enter a filename to create a new .json file: ";
-        cin >> file_name;
-        file_name += ".json";
-        json_file_path = dir_path / file_name;
+        make_file();
     }
+
+
     else { // will print .json files and you will choose a .json file
+
         cout <<
              "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n";
         cout << "Choose a .json file:" << endl;
         for (int i = 0; i < json_files.size(); i++) {
             cout << std::setw(3) << i+1 << "." << "\t" << json_files[i] << endl;
         }
+
+
         cout << json_files.size()+1 << ".\tCreate new .json file" << endl;
         //cout << json_files.size()+2 << ".\tChange file path." << endl;
         cout <<
              "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n";
+
         int choice;
         std::cin >> choice;
         if (choice > 0 && choice <= json_files.size()) {
@@ -106,6 +117,7 @@ void make_file() {
 void write_file(){ //todo split function???
     int option;
     bool valid=false;
+
     while (!valid) {
         cout <<
              "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n";
@@ -113,6 +125,8 @@ void write_file(){ //todo split function???
              "Do you want to add or delete a customer?\n" <<
              "Press '1' to add a customer or '0' to delete one. \n";
         option = option_a_or_b();
+
+
         if (option == 1) {
             cout << "You have chosen to add a person\n";
             cout <<
@@ -140,6 +154,8 @@ void write_file(){ //todo split function???
             }
             valid= true;
         }
+
+        //delete function. also type address exactly w/o ""
         else if (option == 0) {
             read_file();
             std::ifstream file(json_file_path);
@@ -202,7 +218,7 @@ void read_file (){
 }
 
 
-void main_menu (){
+void main_menu (){// i guess this should be at the top
     int choice;
     bool pass_loop= true;
     cout <<"******************************************************************\n"
@@ -288,7 +304,7 @@ int option_a_or_b(){
     }
 }
 
-void add_person_to_address_book(Person p) {
+void add_person_to_address_book(Person p) {// use the class i initially set up to place info in .json file
     std::ifstream file(json_file_path);
     json j;
     file >> j;

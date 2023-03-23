@@ -41,7 +41,7 @@ extern fs::path dir_path;
 
 
 
-class Person {
+class Person { // person class to easily put info in .json
 public:
     std::string name;
     std::string last_name;
