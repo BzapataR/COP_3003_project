@@ -11,3 +11,8 @@ This code is meant for the class COP 3003 and to help my dad manage customer dat
 <summary> Maintainers </summary>
   Brian Zapata Resendiz
   </details>
+  <details>
+<summary> UML </summary>
+  ![Screenshot 2023-04-12 at 11 50 32 PM](https://user-images.githubusercontent.com/101837870/231645827-3953e33d-cacf-4e7b-a35b-f942c7efeaba.png)
+  </details>
+
