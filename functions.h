@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include "json.h"
+#include "json.hpp"
 #include <string>
 #include <array>
 #include <vector>
@@ -16,75 +16,92 @@
 #include <sstream>
 #include <algorithm>
 #include <filesystem>
+#include <map>
+#include <thread>
+#include <chrono>
+#include <cctype>
 
 
 using json = nlohmann::json;
 namespace fs = std::filesystem;
-
-void make_file ();
-void write_file();
-void read_file();
-void main_menu ();
-bool done_menu();
-int option_a_or_b();
-void search_directory();
-void get_json ();
-// int sum_of_house ()todo add cost for each house, also add cost json obj.
-//
-
 using std:: cout;
 using std:: cin;
 using std:: endl;
+using std:: string;
+using std:: vector;
+using std:: chrono::milliseconds;
+using std:: this_thread::sleep_for;
+
+
+//void make_file ();
+//void write_file();
+//void read_file();
+//void read_file(milliseconds time_delay);
+//void main_menu ();
+//bool done_menu();
+//int option_a_or_b();
+//void search_directory();
+//void get_json ();
+//
+//void edit_jobs();
+
 
 extern fs::path json_file_path;
 extern fs::path dir_path;
 
 
-
-class Person { // person class to easily put info in .json
+class Files{ //just here for future if company grows and needs new .json functions
+private:
+    string file=json_file_path;
 public:
-    std::string name;
-    std::string last_name;
-    std::string street_address;
-    std::string city;
-    std::string phone_number;
-    std:: string square_feet;
-
-
-
-    void get_values() {
-
-        cout << "Enter name: ";
-        getline(std::cin, name);
-        cout << "Enter last name: ";
-        getline(std::cin, last_name);
-        cout << "Enter street address: ";
-        getline(std::cin, street_address);
-        cout << "Enter city: ";
-        getline(std::cin, city);
-        cout << "Enter phone number: ";
-        getline(std::cin, phone_number);
-        cout << "Enter square feet: ";
-        cin >> square_feet;
-
-        std::cout << "Person added successfully.\n";
-    }
-//
-    json to_json()  {
-        return
-                {
-                        {"name", name},
-                        {"last_name", last_name},
-                        {"street_address", street_address},
-                        {"city", city},
-                        {"phone_number", phone_number},
-                        {"square_feet", square_feet}
-                };
-    }
-
-
+    const string company_name= "J&A lawn care.";
+    const string company_email="j&alawncare@something";
+    const string company_address="1111 j&a HQ";
+    const string company_second_line_address = "Naples, FL xxxxx";
+    string todays_date;
+    string invoice_ID;
+    const double tax_rate= 1.07;
+    string set_todays_date();
+    Files();
+    void make_invoice();
+    static void print_file(const string& filename);
 };
 
-void add_person_to_address_book(Person p);
+
+class Customer : public Files {
+public:
+    void get_values();
+    json to_json();
+private:
+    string name;
+    string last_name;
+    string street_address;
+    string city;
+    string phone_number;
+    string square_feet;
+    vector<std::map<string,double>> jobs;
+    double cost_of_jobs;
+    double total_cost_with_tax;
+    void get_job ();
+};
+
+//void add_person_to_address_book(Customer p);
+
+class Menus {
+public:
+    Menus();
+    static void main_menu(Files file);
+    static void read_file();
+    static void read_file(milliseconds time_delay);
+    static void make_file();
+    static void write_file();
+    static void get_json();
+    static void search_directory();
+    static int option_a_or_b();
+    static bool done_menu();
+    static void edit_jobs();
+    static void add_person_to_address_book(Customer p);
+
+};
 
 #endif //COP_3003_PROJECT_FUNCTIONS_H
