@@ -1,0 +1,38 @@
+{
+    "address_book": [
+        {
+            "Name": "Jane",
+            "Last name": "Doe",
+            "Street address": "1111 Central ave",
+            "City": "Naples",
+            "Phone number": "(239)-000-0000",
+            "Zip code": "34102",
+            "Square-feet": "120",
+            "Jobs": [
+                {
+                    "Lawn care": 120.0,
+                    "Pesticides": 312.0
+                }
+            ],
+            "Total cost of jobs": 432.0,
+            "Total w/tax": 462.24
+        },
+        {
+            "Name": "John",
+            "Last name": "Doe",
+            "Street address": "0000",
+            "City": "Naples",
+            "Phone number": "(239)-111-1111",
+            "Zip code": "34102",
+            "Square-feet": "501",
+            "Jobs": [
+                {
+                    "Sod replacement": 1200.31,
+                    "Lawn care": 1031.31
+                }
+            ],
+            "Total cost of jobs": 2231.62,
+            "Total w/tax": 2387.83
+        }
+    ]
+}
