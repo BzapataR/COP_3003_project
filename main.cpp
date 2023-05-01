@@ -4,23 +4,20 @@
 #include "functions.h"
 /* basic .json format used
  * {
-    "address_book": [
-        {
-            "Total cost of jobs": 1864.43,
-            "Total w/tax": 1994.94,
-            "city": "Paris",
-            "jobs": [
+            "Name": "Jane",
+            "Last name": "Doe",
+            "Street address": "1111 Central ave",
+            "City": "Naples",
+            "Phone number": "(239)-000-0000",
+            "Zip code": "34102",
+            "Square-feet": "120",
+            "Jobs": [
                 {
-                    "mowing": 534.23,
-                    "rock installment": 1230.21,
-                    "weed killer": 99.99
+                    "Lawn care": 120.0
                 }
             ],
-            "last_name": "Doe",
-            "name": "John",
-            "phone_number": "+123456789",
-            "square_feet": 500,
-            "street_address": "1st Street"
+            "Total cost of jobs": 120.0,
+            "Total w/tax": 128.4
         },
  */
 
