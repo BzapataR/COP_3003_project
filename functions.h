@@ -23,6 +23,7 @@
 
 
 using json = nlohmann::json;
+using ordered_json = nlohmann::ordered_json;
 namespace fs = std::filesystem;
 using std:: cout;
 using std:: cin;
@@ -33,50 +34,41 @@ using std:: chrono::milliseconds;
 using std:: this_thread::sleep_for;
 
 
-//void make_file ();
-//void write_file();
-//void read_file();
-//void read_file(milliseconds time_delay);
-//void main_menu ();
-//bool done_menu();
-//int option_a_or_b();
-//void search_directory();
-//void get_json ();
-//
-//void edit_jobs();
+
 
 
 extern fs::path json_file_path;
 extern fs::path dir_path;
 
 
-class Files{ //just here for future if company grows and needs new .json functions
+class Files{ //here for .txt uses maybe more in future
 private:
     string file=json_file_path;
 public:
-    const string company_name= "J&A lawn care.";
+    const string company_name= "J&A lawn care";
     const string company_email="j&alawncare@something";
     const string company_address="1111 j&a HQ";
     const string company_second_line_address = "Naples, FL xxxxx";
     string todays_date;
     string invoice_ID;
     const double tax_rate= 1.07;
-    string set_todays_date();
+    static string set_todays_date();
     Files();
     void make_invoice();
     static void print_file(const string& filename);
 };
 
 
-class Customer : public Files {
+class Customer : public Files {//.json oriented
 public:
     void get_values();
-    json to_json();
+    ordered_json to_json();
 private:
     string name;
     string last_name;
     string street_address;
     string city;
+    string zip_code;
     string phone_number;
     string square_feet;
     vector<std::map<string,double>> jobs;
@@ -87,7 +79,7 @@ private:
 
 //void add_person_to_address_book(Customer p);
 
-class Menus {
+class Menus {// all menu options
 public:
     Menus();
     static void main_menu(Files file);
