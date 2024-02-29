@@ -1,4 +1,4 @@
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/{BzapataR}/{COP_3003_project}/badge)](https://securityscorecards.dev/viewer/?uri=github.com/{BzapataR}/{COP_3003_project})
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/BzapataR/COP_3003_project/badge)](https://securityscorecards.dev/viewer/?uri=github.com/BzapataR/COP_3003_project)
 # COP_3003_project
 <details>
 <summary> Functionaility </summary>
