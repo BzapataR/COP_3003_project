@@ -2,7 +2,7 @@
 # COP_3003_project
 <details>
 <summary> Functionaility </summary>
-The functionality of this code is to read and write .json formatted files.
+The functionality of this code is to read and write .json with customer data and turn them into formatted files.
 </details>
 <details>
 <summary> Why? </summary>
