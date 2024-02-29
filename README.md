@@ -1,4 +1,5 @@
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/BzapataR/COP_3003_project/badge)](https://securityscorecards.dev/viewer/?uri=github.com/BzapataR/COP_3003_project)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/8471/badge)](https://www.bestpractices.dev/projects/8471
 # COP_3003_project
 <details>
 <summary> Functionaility </summary>
